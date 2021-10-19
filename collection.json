@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "688fca12-c2aa-4989-b0b0-0699b8b300ad",
+		"_postman_id": "41fdc05b-6c67-4e09-8550-522330bbf7f5",
 		"name": "Dar.Finance (Test)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -145,6 +145,192 @@
 							],
 							"path": [
 								"auth.logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user.get",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "v",
+								"value": "{{v}}",
+								"type": "text"
+							},
+							{
+								"key": "project",
+								"value": "{{project}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/user.get?phone={{phone}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user.get"
+							],
+							"query": [
+								{
+									"key": "phone",
+									"value": "{{phone}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "notifications.get",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "v",
+								"value": "{{v}}",
+								"type": "text"
+							},
+							{
+								"key": "project",
+								"value": "{{project}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/notifications.get?is_viewed={{is_viewed}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"notifications.get"
+							],
+							"query": [
+								{
+									"key": "is_viewed",
+									"value": "{{is_viewed}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "notifications.read",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "v",
+								"value": "{{v}}",
+								"type": "text"
+							},
+							{
+								"key": "project",
+								"value": "{{project}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/notifications.read",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"notifications.read"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user.update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "v",
+								"value": "{{v}}",
+								"type": "text"
+							},
+							{
+								"key": "project",
+								"value": "{{project}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": {{first_name}},\r\n    \"last_name\": {{last_name}},\r\n    \"middle_name\": {{middle_name}},\r\n    \"email\": {{email}},\r\n    \"phone\": {{phone}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/user.update",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user.update"
 							]
 						}
 					},

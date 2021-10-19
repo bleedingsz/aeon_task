@@ -20,7 +20,6 @@ Route::init();
 
 $g['path'] = Route::$path;
 $g['year'] = date('Y');
-
 // OUTPUT
 
 HTML::assign('global', $g);

@@ -49,9 +49,7 @@ error_log($method);
 error_log($path);
 error_log($token);
 error_log(json_encode($query, JSON_UNESCAPED_UNICODE));
-
 // validate
-
 if (!$v) response(error_response(1002, 'Invalid request: v (version API) is required'));
 else if ($v != 1) response(error_response(1002, 'Invalid request: v (version API) is incorrect'));
 
@@ -59,7 +57,6 @@ if (!$project) response(error_response(1002, 'Invalid request: project is requir
 else if (!in_array($project, ['copybro', 'mafin'])) response(error_response(1002, 'Invalid request: project is incorrect'));
 
 // routes
-
 if ($path == 'auth.sendCode') call('POST', $method, $query, 'Session::phone_code');
 else if ($path == 'auth.confirmCode') call('POST', $method, $query, 'Session::phone_confirm');
 else {
@@ -72,6 +69,14 @@ else {
     if ($path == 'auth.logout') call('POST', $method, NULL, 'Session::logout');
     // routes (users)
     // your methods here ...
+
+    if($path == 'user.get') call('GET', $method, $query_raw, 'User::user_info');
+
+    if($path == 'user.update') call('POST', $method, $query, 'User::owner_update');
+
+    if($path == 'notifications.get') call('GET', $method, (bool) $query_raw['is_viewed'], 'Notification::getNotifications');
+
+    if($path == 'notifications.read') call('POST', $method, NULL, 'User::owner_info');
     // routes (not found)
     response(error_response(1002, 'Application authorization failed: method is unavailable with service token.'));
 }
